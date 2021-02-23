@@ -18,17 +18,21 @@ public class ImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Connect to the items in the activity
         Spinner spinner = findViewById(R.id.spinnerView);
         ImageView imageView = findViewById(R.id.imageView);
 
+        // Create some sample themes
         Theme[] themes = new Theme[] {
                 new Theme("Dog", R.drawable.dog),
                 new Theme("Cat", R.drawable.cat),
                 new Theme("Acadia", R.drawable.acadia)
         };
 
+        // Connect to the spinner adapter
         spinner.setAdapter(new ImageAdapter(this, themes));
 
+        // Handle changes to the spinner value
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
